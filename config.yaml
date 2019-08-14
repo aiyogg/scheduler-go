@@ -1,9 +1,9 @@
 wxread:
   # 微信活动链接
   wechat:
-    infinite: https://weread.qq.com/wrpage/infinite/lottery/
-    jizan: https://weread.qq.com/wrpage/huodong/abtest/jizan/
-    flip: https://weread.qq.com/wrpage/flip/card/
+    infinite: https://weread.qq.com/wrpage/infinite/lottery
+    jizan: https://weread.qq.com/wrpage/huodong/abtest/jizan
+    flip: https://weread.qq.com/wrpage/flip/card
   # 瓦斯组队提交链接
   commit:
     infinite: https://weread.qnmlgb.tech/submit
