@@ -112,13 +112,42 @@ func flipJob() {
 	}
 }
 
+// server酱提醒开启组队
+func infinitePush() {
+	now := time.Now()
+	fmt.Println("infinitePush run at: ", now.Format("2006-01-02 15:04:05"))
+
+	serverPushURL := viper.GetString("wxread.serverPush")
+	chResult := make(chan string, 1)
+	go func() {
+		req, _ := http.NewRequest("GET", serverPushURL, nil)
+		q := req.URL.Query()
+		q.Add("text", "开启无限卡抽奖组队")
+		q.Add("desp", "> 新一轮组队链接将于 **2** 个小时后自动提交，请点击下方图片手动开启组队！    \r\n[![url](https://s2.ax1x.com/2019/08/22/mdfljg.jpg)](https://weread.qq.com/wrpage/infinite/lottery)")
+		req.URL.RawQuery = q.Encode()
+		// fmt.Println(req.URL.String())
+
+		client := &http.Client{}
+		res, err := client.Do(req)
+		if err != nil {
+			panic(err)
+		}
+		defer res.Body.Close()
+
+		body, _ := ioutil.ReadAll(res.Body)
+		chResult <- string(body)
+	}()
+
+	fmt.Printf("infinitePush result: %s \n", <-chResult)
+}
+
 func wxreadJob() {
 	c := cron.New()
 
-	c.AddFunc("0 0 12 * * 6", infiniteJob)
+	c.AddFunc("0 0 12 * * 6", infinitePush)
+	c.AddFunc("0 0 14 * * 6", infiniteJob)
 	c.AddFunc("0 0 21 * * 4", jizanJob)
 	c.AddFunc("0 0 12 * * 2", flipJob)
-	c.Start()
 
-	select {}
+	c.Run()
 }

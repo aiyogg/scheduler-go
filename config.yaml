@@ -9,6 +9,8 @@ wxread:
     infinite: https://weread.qnmlgb.tech/submit
     jizan: https://weread.qnmlgb.tech/giveonegetone/submit
     flip: https://weread.qnmlgb.tech/flip/submit
+  # server酱push
+  serverPush: https://sc.ftqq.com/{TOKEN}.send
   # 用户 id
   vids:
     - '35016575'
