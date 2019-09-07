@@ -2,6 +2,7 @@ package jobs
 
 import (
 	"fmt"
+	"log"
 	"time"
 
 	"bytes"
@@ -25,7 +26,7 @@ func init() {
 func request(commitURL, jsonStrWithoutVid string, resultChan chan string) func(vid string) {
 	return func(vid string) {
 		jsonStr := []byte(fmt.Sprintf(jsonStrWithoutVid, vid, vid))
-		fmt.Println("Body: ", string(jsonStr))
+		log.Println("Body: ", string(jsonStr))
 		req, _ := http.NewRequest("POST", commitURL, bytes.NewBuffer(jsonStr))
 		req.Header.Set("Origin", "https://weread.qnmlgb.tech")
 		req.Header.Set("Content-Type", "application/json")
@@ -61,7 +62,7 @@ func infiniteJob() {
 	}
 
 	for result := range resultList {
-		fmt.Printf("InfiniteJob result: %s \n", result)
+		log.Printf("InfiniteJob result: %s \n", result)
 	}
 }
 
@@ -84,7 +85,7 @@ func jizanJob() {
 	}
 
 	for result := range resultList {
-		fmt.Printf("jizanJob result: %s \n", result)
+		log.Printf("jizanJob result: %s \n", result)
 	}
 }
 
@@ -108,7 +109,7 @@ func flipJob() {
 	}
 
 	for result := range resultList {
-		fmt.Printf("flipJob result: %s \n", result)
+		log.Printf("flipJob result: %s \n", result)
 	}
 }
 
@@ -123,7 +124,7 @@ func infinitePush() {
 		req, _ := http.NewRequest("GET", serverPushURL, nil)
 		q := req.URL.Query()
 		q.Add("text", "开启无限卡抽奖组队")
-		q.Add("desp", "> 新一轮组队链接将于 **2** 个小时后自动提交，请点击下方图片手动开启组队！    \r\n[![url](https://s2.ax1x.com/2019/08/22/mdfljg.jpg)](https://weread.qq.com/wrpage/infinite/lottery)")
+		q.Add("desp", "> 新一轮组队链接将于 **1** 个小时后自动提交，请点击下方图片手动开启组队！    \r\n[![url](https://s2.ax1x.com/2019/08/22/mdfljg.jpg)](https://weread.qq.com/wrpage/infinite/lottery)")
 		req.URL.RawQuery = q.Encode()
 		// fmt.Println(req.URL.String())
 
@@ -138,14 +139,14 @@ func infinitePush() {
 		chResult <- string(body)
 	}()
 
-	fmt.Printf("infinitePush result: %s \n", <-chResult)
+	log.Printf("infinitePush result: %s \n", <-chResult)
 }
 
 func wxreadJob() {
 	c := cron.New()
 
 	c.AddFunc("0 0 12 * * 6", infinitePush)
-	c.AddFunc("0 0 14 * * 6", infiniteJob)
+	c.AddFunc("0 0 13 * * 6", infiniteJob)
 	c.AddFunc("0 0 21 * * 4", jizanJob)
 	c.AddFunc("0 0 12 * * 2", flipJob)
 
