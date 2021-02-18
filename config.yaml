@@ -13,6 +13,6 @@ wxread:
   serverPush: https://sc.ftqq.com/{TOKEN}.send
   # 用户 id
   vids:
-    - '35016575'
-    - '36064827'
-    - '21532019'
+    - "35016575"
+    - "36064827"
+    - "21532019"
