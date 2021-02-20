@@ -9,17 +9,19 @@ import (
 	"io/ioutil"
 	"net/http"
 
+	work "github.com/hai046/workweixin-go"
 	"github.com/robfig/cron"
 	"github.com/spf13/viper"
 )
 
+var qyapi work.WorkWeixin
+
 func init() {
-	viper.SetConfigName("config")
-	viper.AddConfigPath(".")
-	err := viper.ReadInConfig()
-	if err != nil {
-		panic(fmt.Errorf("Fatal error config files: %s", err))
-	}
+	corpid := viper.GetString("workweixin.appinfo.corpid")
+	corpsecret := viper.GetString("workweixin.appinfo.corpsecret")
+	agentid := viper.GetInt("workweixin.appinfo.agentid")
+
+	qyapi.Init(corpid, corpsecret, agentid)
 }
 
 // request 统一请求函数
@@ -140,6 +142,9 @@ func infinitePush() {
 	}()
 
 	log.Printf("infinitePush result: %s \n", <-chResult)
+
+	sendRes := qyapi.SendText("@all", "", "", "微信读书组队提醒\n新一轮组队链接将于 1 个小时后自动提交，<a href=\"https://weread.qq.com/wrpage/infinite/lottery\">点击开启组队</a>")
+	log.Printf("qyapi SendText result: %s", sendRes)
 }
 
 func wxreadJob() {
