@@ -16,3 +16,10 @@ wxread:
     - "35016575"
     - "36064827"
     - "21532019"
+
+# 企业微信api
+workweixin:
+  appinfo:
+    corpid: corpid
+    corpsecret: corpsecret
+    agentid: 1000002
