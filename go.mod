@@ -1,6 +1,6 @@
 module scheduler-go
 
-go 1.12
+go 1.6
 
 require (
 	github.com/hai046/workweixin-go v0.0.0-20200513032024-fa1aaaa225af
