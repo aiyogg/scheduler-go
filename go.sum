@@ -3,6 +3,8 @@ github.com/BurntSushi/toml v0.3.1 h1:WXkYYl6Yr3qBf1K79EBnL4mak0OimBfB0XUf9Vl28OQ
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/DOTA2mm/workweixin-go v0.0.0-20210221135145-3cfc5a0ee1fa h1:JIGEMFv2SnMAkSBpfPC9IEdCIifol7SUxBZZHrrU6rA=
 github.com/DOTA2mm/workweixin-go v0.0.0-20210221135145-3cfc5a0ee1fa/go.mod h1:ArLVHEp3fIRCpV6QCQxlthsvUaKBQT7Q/Ee9TS5txZ4=
+github.com/DOTA2mm/workweixin-go v0.1.0 h1:INNxMrKuMeSS25TqUKSeXB6m+IfUfTUPBkQXFloHEe0=
+github.com/DOTA2mm/workweixin-go v0.1.0/go.mod h1:lkIqSUdAXtLGPvLtLNIzFPQSBUMndnZe0oKrXkpQbQI=
 github.com/OneOfOne/xxhash v1.2.2/go.mod h1:HSdplMjZKSmBqAxg5vPj2TmRDmfkzw+cTzAElWljhcU=
 github.com/alecthomas/template v0.0.0-20160405071501-a0175ee3bccc/go.mod h1:LOuyumcjzFXgccqObfd/Ljyb9UuFJ6TxHnclSeseNhc=
 github.com/alecthomas/units v0.0.0-20151022065526-2efee857e7cf/go.mod h1:ybxpYRFXyAe+OPACYpWeL0wqObRcbAqCMya13uyzqw0=
