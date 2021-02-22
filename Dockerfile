@@ -32,6 +32,9 @@ FROM alpine:latest
 
 RUN apk --no-cache add ca-certificates
 
+# Timezone setting
+ENV TZ Asia/Shanghai
+
 WORKDIR /root
 
 COPY --from=builder /dist/main /dist/config.yaml ./
