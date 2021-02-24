@@ -9,8 +9,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	work "github.com/DOTA2mm/workweixin-go"
-
+	work "github.com/aiyogg/workweixin-go"
 	"github.com/robfig/cron"
 	"github.com/spf13/viper"
 )

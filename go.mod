@@ -3,7 +3,7 @@ module scheduler-go
 go 1.6
 
 require (
-	github.com/DOTA2mm/workweixin-go v0.1.0
+	github.com/aiyogg/workweixin-go v0.1.2
 	github.com/magiconair/properties v1.8.1 // indirect
 	github.com/pelletier/go-toml v1.4.0 // indirect
 	github.com/robfig/cron v1.2.0
