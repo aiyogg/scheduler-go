@@ -30,10 +30,11 @@ RUN cp /build/main /build/config.yaml .
 # Build a small image
 FROM alpine:latest
 
-RUN apk --no-cache add ca-certificates
-
-# Timezone setting
-ENV TZ Asia/Shanghai
+RUN apk --no-cache add ca-certificates \
+  && apk add tzdata \
+  && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+  && echo "Asia/Shanghai" > /etc/timezone \
+  && apk del tzdata
 
 WORKDIR /root
 
