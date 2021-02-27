@@ -30,7 +30,9 @@ RUN cp /build/main /build/config.yaml .
 # Build a small image
 FROM alpine:latest
 
-RUN apk --no-cache add ca-certificates \
+RUN echo 'http://mirrors.ustc.edu.cn/alpine/v3.5/main' > /etc/apk/repositories \
+  && echo 'http://mirrors.ustc.edu.cn/alpine/v3.5/community' >>/etc/apk/repositories \
+  && apk --no-cache add ca-certificates \
   && apk add tzdata \
   && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
   && echo "Asia/Shanghai" > /etc/timezone \
