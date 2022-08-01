@@ -18,4 +18,5 @@ func init() {
 // Startup func
 func Startup() {
 	wxreadJob()
+	clockInJob()
 }
