@@ -11,7 +11,7 @@ func init() {
 	viper.AddConfigPath(".")
 	err := viper.ReadInConfig()
 	if err != nil {
-		panic(fmt.Errorf("Fatal error config files: %s", err))
+		panic(fmt.Errorf("fatal error config files: %s", err))
 	}
 }
 
@@ -19,4 +19,6 @@ func init() {
 func Startup() {
 	wxreadJob()
 	clockInJob()
+
+	select {}
 }
