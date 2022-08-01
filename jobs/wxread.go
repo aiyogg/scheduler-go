@@ -155,5 +155,5 @@ func wxreadJob() {
 	c.AddFunc("0 0 21 * * 4", jizanJob)
 	c.AddFunc("0 0 12 * * 2", flipJob)
 
-	c.Run()
+	c.Start()
 }
