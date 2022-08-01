@@ -77,7 +77,7 @@ func clockInJob() {
 	c := cron.New()
 
 	c.AddFunc("0 55 8 * * *", workWxNotify("上班"))
-	c.AddFunc("0 * * * * *", workWxNotify("下班"))
+	c.AddFunc("0 0 18 * * *", workWxNotify("下班"))
 
 	c.Start()
 }
