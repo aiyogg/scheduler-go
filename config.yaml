@@ -2,15 +2,11 @@ wxread:
   # 微信活动链接
   wechat:
     infinite: https://weread.qq.com/wrpage/infinite/lottery
-    jizan: https://weread.qq.com/wrpage/huodong/abtest/jizan
-    flip: https://weread.qq.com/wrpage/flip/card
+    jizan: https://weread.qq.com/book-detail?type=1&v=230326e071c69cda230127c&wtype=giveOneGetOneNewYear
   # 瓦斯组队提交链接
   commit:
     infinite: https://weread.qnmlgb.tech/submit
     jizan: https://weread.qnmlgb.tech/giveonegetone/submit
-    flip: https://weread.qnmlgb.tech/flip/submit
-  # server酱push
-  serverPush: https://sc.ftqq.com/{TOKEN}.send
   # 用户 id
   vids:
     - "vid1"
