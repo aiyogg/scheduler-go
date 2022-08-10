@@ -1,6 +1,7 @@
 package jobs
 
 import (
+	"crypto/tls"
 	"fmt"
 	"log"
 	"time"
@@ -33,7 +34,10 @@ func request(commitURL, jsonStrWithoutVid string, resultChan chan string) func(v
 		req.Header.Set("Origin", "https://weread.qnmlgb.tech")
 		req.Header.Set("Content-Type", "application/json")
 
-		client := &http.Client{}
+		tr := &http.Transport{
+			TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+		}
+		client := &http.Client{Transport: tr}
 		res, err := client.Do(req)
 		if err != nil {
 			log.Fatalf("Request Error: %s", err)
