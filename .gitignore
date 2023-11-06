@@ -2,3 +2,4 @@
 .vscode
 config_real.yaml
 *debug*
+vendor
