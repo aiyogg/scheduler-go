@@ -25,7 +25,7 @@ RUN go build -o main .
 WORKDIR /dist
 
 # Copy binary and config file from build to main folder
-RUN cp /build/main /build/config.yaml .
+RUN cp /build/main /build/config_real.yaml .
 
 # Build a small image
 FROM alpine:latest
@@ -40,7 +40,7 @@ RUN echo 'http://mirrors.ustc.edu.cn/alpine/v3.5/main' > /etc/apk/repositories \
 
 WORKDIR /root
 
-COPY --from=builder /dist/main /dist/config.yaml ./
+COPY --from=builder /dist/main /dist/config_real.yaml ./
 
 VOLUME [ "/tmp" ]
 
