@@ -25,7 +25,7 @@ type Holiday struct {
 }
 
 func (h *Holiday) Init() {
-	confFilePath := fmt.Sprintf("/tmp/%s_holiday.json", time.Now().Format("2006"))
+	confFilePath := fmt.Sprintf("/.config/scheduler-go/%s_holiday.json", time.Now().Format("2006"))
 	conf, err := ioutil.ReadFile(confFilePath)
 	if err != nil {
 		panic(err)
