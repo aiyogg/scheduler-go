@@ -7,23 +7,12 @@ import (
 	"time"
 
 	"bytes"
-	"io/ioutil"
+	"io"
 	"net/http"
 
-	work "github.com/aiyogg/workweixin-go"
 	"github.com/robfig/cron"
 	"github.com/spf13/viper"
 )
-
-var qyapi work.WorkWeixin
-
-func init() {
-	corpid := viper.GetString("workweixin.appinfo.corpid")
-	corpsecret := viper.GetString("workweixin.appinfo.corpsecret")
-	agentid := viper.GetInt("workweixin.appinfo.agentid")
-
-	qyapi.Init(corpid, corpsecret, agentid)
-}
 
 // request 统一请求函数
 func request(commitURL, jsonStrWithoutVid string, resultChan chan string) func(vid string) {
@@ -44,7 +33,7 @@ func request(commitURL, jsonStrWithoutVid string, resultChan chan string) func(v
 		}
 		defer res.Body.Close()
 
-		body, _ := ioutil.ReadAll(res.Body)
+		body, _ := io.ReadAll(res.Body)
 		resultChan <- string(body)
 	}
 }

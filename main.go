@@ -1,7 +1,7 @@
 package main
 
 import (
-	"scheduler-go/jobs"
+	"github.com/aiyogg/scheduler-go/jobs"
 )
 
 func main() {
