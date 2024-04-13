@@ -29,7 +29,7 @@ func init() {
 func Startup() {
 	weiBoSubscribeJob()
 	// wxreadJob()
-	// clockInJob()
+	clockInJob()
 
 	select {}
 }

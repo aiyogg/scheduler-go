@@ -62,7 +62,7 @@ func workWxNotify(which string) func() {
 
 		var text string
 		if which == "上班" {
-			text = "元气满满的一天开始啦，记得打卡哦！"
+			text = "今天是工作日，打起精神挣钱啦！"
 		} else if which == "下班" {
 			text = "又到了愉快的下班时间啦，打卡下班！"
 		}
@@ -77,7 +77,7 @@ func clockInJob() {
 	c := cron.New()
 
 	c.AddFunc("0 55 8 * * *", workWxNotify("上班"))
-	c.AddFunc("0 0 18 * * *", workWxNotify("下班"))
+	// c.AddFunc("0 0 18 * * *", workWxNotify("下班"))
 
 	c.Start()
 }
