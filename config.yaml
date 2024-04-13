@@ -18,6 +18,13 @@ clockin:
     - "userid1"
     - "userid2"
 
+WeiBoSubscribe:
+  users:
+    - uid: "weibo_uid1"
+      nickname: Nickname
+      containerid: "containerid"
+      receiver: workweixinuser1
+
 # 企业微信api
 workweixin:
   appinfo:

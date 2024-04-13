@@ -42,7 +42,7 @@ WORKDIR /root
 
 COPY --from=builder /dist/main /dist/config_real.yaml ./
 
-VOLUME [ "/tmp" ]
+VOLUME [ "/config", "/tmp" ]
 
 # Command to run
 CMD ["./main"]

@@ -3,8 +3,8 @@ package jobs
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"log"
+	"os"
 	"strings"
 	"time"
 
@@ -26,7 +26,7 @@ type Holiday struct {
 
 func (h *Holiday) Init() {
 	confFilePath := fmt.Sprintf("/.config/scheduler-go/%s_holiday.json", time.Now().Format("2006"))
-	conf, err := ioutil.ReadFile(confFilePath)
+	conf, err := os.ReadFile(confFilePath)
 	if err != nil {
 		panic(err)
 	}
